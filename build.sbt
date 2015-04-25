@@ -6,5 +6,5 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 libraryDependencies ++= Seq(
   javaJdbc,
-  javaEbean
-)     
+  javaEbean,
+  "com.google.code.gson" % "gson" % "2.3.1" )

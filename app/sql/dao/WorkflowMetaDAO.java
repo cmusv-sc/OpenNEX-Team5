@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import db.DBConnector;
 import sql.WorkflowMeta;
 import models.IWorkflowMeta;
 import models.dao.IWorkflowMetaDAO;
@@ -12,11 +13,18 @@ import models.dao.IWorkflowMetaDAO;
 public class WorkflowMetaDAO implements IWorkflowMetaDAO {
 
 	private Connection connection;
+	
+	public WorkflowMetaDAO() {
 
+		if(DBConnector.connection == null) {
+			DBConnector connector = new DBConnector();
+			connector.getConnection();
+		}	
+	}
 	@Override
 	public IWorkflowMeta getWorkflowMeta(long id) {
-		String sql = "select * from workflowmeta where id = ?";
-		
+		String sql = "select * from `RecommendationDB`.workflowmeta where workflowmeta_id = ?";
+		connection = DBConnector.connection;
 		try {
 			PreparedStatement pre;
 			pre = connection.prepareStatement(sql);

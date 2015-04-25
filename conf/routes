@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /workflowMeta/id                           controllers.WorkflowMetaController.getWorkflowMetaById(id:long)
+GET     /workflowMeta/:id                           controllers.WorkflowMetaController.getWorkflowMetaById(id:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

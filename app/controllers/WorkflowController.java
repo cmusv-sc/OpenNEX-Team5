@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import views.html.*;
+
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -13,9 +14,7 @@ import sql.dao.WorkflowDAO;
 
 public class WorkflowController extends Controller {
 
-    public static Result index() {
-        return ok(index.render());
-    }
+
     
     public static Result getWorkflowByKeyword(String keyword){
     	IWorkflowDAO wd = new WorkflowDAO();
