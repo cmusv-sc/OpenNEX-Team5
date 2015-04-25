@@ -17,8 +17,7 @@ public class RecommendController extends Controller {
 	public static Result getTopTenWorkflow(){
 		IWorkflowDAO wfd = new WorkflowDAO();
 		IWorkflowMetaDAO wmd = new WorkflowMetaDAO();
-		// todo:
-		
+		wmd.getTopTenWorkflow();
 		
 		String ret = new String();
 		ret = new Gson().toJson(wmd);
