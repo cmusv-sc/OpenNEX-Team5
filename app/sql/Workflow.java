@@ -4,18 +4,18 @@ import models.IWorkflow;
 
 public class Workflow implements IWorkflow {
 
-	private String id;
+	private long id;
 	private String title;
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	/**

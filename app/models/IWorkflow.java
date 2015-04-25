@@ -2,7 +2,7 @@ package models;
 
 public interface IWorkflow {
 	
-	public String getId();
+	public long getId();
 	public String getTitle();
 
 }
