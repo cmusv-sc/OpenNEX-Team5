@@ -3,6 +3,11 @@ package sql;
 import models.IWorkflowMeta;
 
 public class WorkflowMeta implements IWorkflowMeta {
+	private long id;
+	private String tag;
+	private int count;
+	private String contributor;
+	
 	public long getId() {
 		return id;
 	}
@@ -27,10 +32,7 @@ public class WorkflowMeta implements IWorkflowMeta {
 	public void setContributor(String contributor) {
 		this.contributor = contributor;
 	}
-	private long id;
-	private String tag;
-	private int count;
-	private String contributor;
+
 
 
 

@@ -16,3 +16,4 @@ dist
 .DS_Store
 bin/*
 app/.DS_Store
+/bin/
