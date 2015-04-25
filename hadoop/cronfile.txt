@@ -1,0 +1,1 @@
+*/1 * * * * {path of your hadoopschedule.sh}
