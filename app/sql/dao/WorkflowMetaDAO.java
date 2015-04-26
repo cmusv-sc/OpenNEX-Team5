@@ -23,13 +23,13 @@ public class WorkflowMetaDAO implements IWorkflowMetaDAO {
 		}	
 	}
 	@Override
-	public IWorkflowMeta getWorkflowMeta(long id) {
+	public IWorkflowMeta getWorkflowMeta(String id) {
 		String sql = "select * from `RecommendationDB`.workflowmeta where workflowmeta_id = ?";
 		connection = DBConnector.connection;
 		try {
 			PreparedStatement pre;
 			pre = connection.prepareStatement(sql);
-			pre.setLong(1, id);
+			pre.setString(1, id);
 
 			ResultSet ret = pre.executeQuery();
 			while(ret.next()) {
