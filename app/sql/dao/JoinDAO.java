@@ -27,7 +27,9 @@ public class JoinDAO {
 	
 	
 	public List<String> getTopXIdsByTag(String tag, int x){
-		String sql = "select distinct  workflowmeta.workflowmeta_id from `RecommendationDB`.workflowmeta inner join `RecommendationDB`.tag on workflowmeta.workflowmeta_id = tag.workflowmeta_id where tag.tag like ? order by workflowmeta.count desc limit ?";
+//		String sql = "select distinct  workflowmeta.workflowmeta_id from `RecommendationDB`.workflowmeta inner join `RecommendationDB`.tag on workflowmeta.workflowmeta_id = tag.workflowmeta_id where tag.tag like ? order by workflowmeta.count desc limit ?";
+		String sql = "select distinct  workflowmeta.workflowmeta_id from `RecommendationDB`.workflowmeta  where tag like ? order by workflowmeta.count desc limit ?";
+		
 		connection = DBConnector.connection;
 		List<String> ids = new ArrayList<String>();
 		try{

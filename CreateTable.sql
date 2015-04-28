@@ -7,14 +7,19 @@ CREATE TABLE IF NOT EXISTS `RecommendationDB`.`workflow` (
 CREATE TABLE IF NOT EXISTS `RecommendationDB`.`workflowmeta` (
 	workflowmeta_id CHAR(40),
 	count int,
+	tag VARCHAR (200),
 	PRIMARY KEY(workflowmeta_id)
 );
 
-CREATE TABLE IF NOT EXISTS `RecommendationDB`.`tag` (
-	workflowmeta_id CHAR(40),
-	tag CHAR(40)
-);
 
+CREATE TABLE IF NOT EXISTS `RecommendationDB`.`workflowentry` (
+	registryId CHAR(40),
+	workflowId CHAR(40),
+	versionNo int,
+	registorId CHAR(40),
+	registerTimeStamp DATETIME,
+	registerNote CHAR(40)
+);
 
 
 

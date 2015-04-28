@@ -6,12 +6,11 @@ import db.DBConstruction;
 public class Driver {
 
 	public static void main(String[] args) {
-		DBConnector connecter = new DBConnector();
-		if(connecter.getConnection()) {
+		
+		if (DBConnector.getConnection()) {
 			DBConstruction construction = new DBConstruction();
 			construction.createSchema();
 			construction.createTableFromFile();
-			
 		}
 	}
 

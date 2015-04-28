@@ -13,8 +13,6 @@ import models.dao.IWorkflowDAO;
 import sql.dao.WorkflowDAO;
 
 public class WorkflowController extends Controller {
-
-
     
     public static Result getWorkflowByKeyword(String keyword){
     	IWorkflowDAO wd = new WorkflowDAO();

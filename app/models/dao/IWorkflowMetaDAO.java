@@ -1,12 +1,12 @@
 package models.dao;
 
+import java.util.List;
+
 import models.IWorkflowMeta;
 
 public interface IWorkflowMetaDAO {
 	
-	public boolean addWorkflowMeta(long id, String tag, int count, String contributor);
-	public boolean updateWorkflowMeta(long id, int count);
-	public void getTopTenWorkflow();
+	public List<String> getTopXIdsByTag(String tag, int x);
 	public IWorkflowMeta getWorkflowMeta(String id);
 
 }
