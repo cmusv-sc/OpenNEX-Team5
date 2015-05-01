@@ -13,15 +13,11 @@ import com.google.gson.Gson;
 public class WorkflowMetaController extends Controller {
 	
     public static Result getWorkflowMetaById(String id){
-    	
     	IWorkflowMetaDAO wmd = new WorkflowMetaDAO();
     	IWorkflowMeta wm = wmd.getWorkflowMeta(id);    	
     	String ret = new String();
     	ret = new Gson().toJson(wm);
     	return ok(ret);
     }
-    
-    
-
 
 }

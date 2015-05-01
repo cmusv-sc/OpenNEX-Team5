@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import models.IWorkflow;
+import models.WorkflowEntry;
 import models.dao.IWorkflowDAO;
 import sql.dao.WorkflowDAO;
 
@@ -26,5 +27,12 @@ public class WorkflowController extends Controller {
     	return ok(ret);
     }
 
-
+    public static Result getWorkflows(){
+    	List<WorkflowEntry> workflows = WorkflowEntry.find.all();
+    	GsonBuilder builder = new GsonBuilder();
+    	builder.excludeFieldsWithoutExposeAnnotation();
+    	Gson gson = builder.create();
+		return ok(gson.toJson(workflows));
+    }
+    
 }

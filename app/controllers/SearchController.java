@@ -25,15 +25,22 @@ public class SearchController extends Controller {
 	}
 	
 	public static Result getWorkflowsByTag(String tag){
+		
+		GsonBuilder builder = new GsonBuilder();
+    	builder.excludeFieldsWithoutExposeAnnotation();
+    	Gson gson = builder.create();
+		
 		List<WorkflowMeta> metas = WorkflowMeta.find.where().contains("tags", tag).findList();
+		
+		if(metas.size() == 0){
+			return ok(gson.toJson(new ArrayList<String>()));
+		}
+		
 		List<String> ids = new ArrayList<String>();
 		for(WorkflowMeta meta : metas){
 			ids.add(meta.workflow_id);
 		}
 		List<WorkflowEntry> workflows = WorkflowEntry.find.where().idIn(ids).findList();
-		GsonBuilder builder = new GsonBuilder();
-    	builder.excludeFieldsWithoutExposeAnnotation();
-    	Gson gson = builder.create();
 		return ok(gson.toJson(workflows));
 	}
 
