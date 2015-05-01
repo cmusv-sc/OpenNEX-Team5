@@ -7,6 +7,7 @@ import views.html.*;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import models.IWorkflow;
 import models.dao.IWorkflowDAO;
@@ -18,7 +19,10 @@ public class WorkflowController extends Controller {
     	IWorkflowDAO wd = new WorkflowDAO();
     	List<IWorkflow> wfArr = wd.getWorkflowByKeyword(keyword);
     	String ret = new String();
-    	ret = new Gson().toJson(wfArr.subList(0, 10));
+    	GsonBuilder builder = new GsonBuilder();
+    	builder.excludeFieldsWithoutExposeAnnotation();
+    	Gson gson = builder.create();
+    	ret = gson.toJson(wfArr.subList(0, 10));
     	return ok(ret);
     }
 

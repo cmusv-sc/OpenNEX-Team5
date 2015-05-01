@@ -6,5 +6,7 @@
 GET     /workflowMeta/:id                           controllers.WorkflowMetaController.getWorkflowMetaById(id:String)
 GET     /workflows/tag/:tag                         controllers.SearchController.getWorkflowIdsByTag(tag:String)
 
+GET		/workflows/search/:tag						controllers.SearchController.getWorkflowsByTag(tag:String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

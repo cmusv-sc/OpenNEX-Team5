@@ -3,24 +3,31 @@
 
 # --- !Ups
 
-create table person (
-  id                        varchar(255) not null,
-  name                      varchar(255),
-  constraint pk_person primary key (id))
+create table workflow_entry (
+  workflow_id               varchar(255) not null,
+  registry_id               varchar(255),
+  version_no                varchar(255),
+  registor_id               varchar(255),
+  register_time_stamp       varchar(255),
+  register_note             varchar(1000),
+  constraint pk_workflow_entry primary key (workflow_id))
 ;
 
-create sequence person_seq;
+create table workflow_meta (
+  workflow_id               varchar(255),
+  tags                      varchar(255))
+;
 
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists person;
+drop table workflow_entry;
 
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table workflow_meta;
 
-drop sequence if exists person_seq;
+SET FOREIGN_KEY_CHECKS=1;
 

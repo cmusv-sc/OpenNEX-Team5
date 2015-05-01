@@ -15,18 +15,18 @@ with open(filename) as data_file:
 		# Connect to the database and create the tables
 conn = MySQLdb.connect (host = "localhost", user = "root", passwd = "")
 cursor = conn.cursor ()
-cursor.execute ("DROP DATABASE IF EXISTS opennex")
-cursor.execute ("CREATE DATABASE opennex")
+#cursor.execute ("DROP DATABASE IF EXISTS opennex")
+#cursor.execute ("CREATE DATABASE opennex")
 cursor.execute ("USE opennex")
 cursor.execute ("""
-CREATE TABLE workflow_entry
+CREATE TABLE IF NOT EXISTS workflow_entry
 (
-  registryId     TEXT,
-  workflowId     TEXT,
-  versionNo      TEXT,
-  registorId     TEXT,
-  registerTimeStamp TEXT,
-  registerNote   TEXT
+  registry_id     TEXT,
+  workflow_id     TEXT,
+  version_no      TEXT,
+  registor_id     TEXT,
+  register_time_stamp TEXT,
+  register_note   TEXT
   )
   """)
 
@@ -38,7 +38,7 @@ for i in range(0, len(data)):
 	regId = wf['registorId']
 	ts = wf['registerTimeStamp']
 	note = wf['registerNote']
-	cursor.execute ("""INSERT INTO workflow_entry (registryId,workflowId,versionNo,registorId,registerTimeStamp,registerNote)
+	cursor.execute ("""INSERT INTO workflow_entry (registry_id,workflow_id,version_no,registor_id,register_time_stamp,register_note)
     	VALUES
     	(%s,%s,%s,%s,%s,%s)""", (rId, wId, ver, regId, ts, note))
 

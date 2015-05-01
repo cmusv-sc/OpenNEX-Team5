@@ -48,7 +48,7 @@ public class MetaTransform {
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			String line = value.toString();
 			String[] linetoken = line.split(",");
-			String id = linetoken[1];
+			String id = linetoken[0];
 			// description is all strings starting from item 5
 			StringBuilder buffer = new StringBuilder();
 			for(int i=5; i < linetoken.length; i++){
