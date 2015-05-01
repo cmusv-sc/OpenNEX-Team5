@@ -13,7 +13,7 @@ This project is part of OpenNEX. This demonstrates a workflow to build a scalabl
 - http://amodernstory.com/2014/09/23/installing-hadoop-on-mac-osx-yosemite/
 
 ## Running the Demo
-1. Run the app on port 8800 and start hdfs and yarn
+* Run the app on port 8800 and start hdfs and yarn
 ```
 # starts the Play app on port 8800
 ./activator "run 8800"
@@ -21,13 +21,13 @@ This project is part of OpenNEX. This demonstrates a workflow to build a scalabl
 $HADOOP_HOME/sbin/start-dfs.sh
 $HADOOP_HOME/sbin/start-yarn.sh
 ```
-2. Import sample workflow data
+* Import sample workflow data
 ```
 cd generators/workflow
 python mysql-import-workflow.py workflows.json
 cd -
 ```
-3. Import data from MySQL to HDFS
+* Import data from MySQL to HDFS
 ```
 sqoop import \
   --connect jdbc:mysql://localhost/opennex \
@@ -36,13 +36,13 @@ sqoop import \
   --m 1 \
   --target-dir /queryresult/workflow_entry
 ```
-4. Compile and Run the MetaTransform job to generate tag metadata for workflows
+* Compile and Run the MetaTransform job to generate tag metadata for workflows
 ```
 cd hadoop
 sh hadoopJobToJar.sh MetaTransform.java
 hadoop jar MetaTransform.jar MetaTransform /queryresult/workflow_entry /output/workflow_tags
 ```
-5. Export the result from HDFS back into MySQL
+* Export the result from HDFS back into MySQL
 ```
 sqoop export \
   --connect jdbc:mysql://localhost/opennex \
@@ -50,7 +50,7 @@ sqoop export \
   --table workflow_meta
   --export-dir /output/workflow_tags
 ```
-6. Start searching thru the /workflows/search/$tag API
+* Start searching thru the /workflows/search/$tag API
 ```
 curl http://localhost:8800/workflows/search/science
 ```
