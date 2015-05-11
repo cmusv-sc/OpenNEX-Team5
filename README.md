@@ -58,7 +58,7 @@ curl http://localhost:8800/workflows/search/science
 ## More Info
 Feel free to contact any of the team members:
 - Cef Ramirez <cef.ramirez@sv.cmu.edu>
-- Bin Lan <cef.ramirez@sv.cmu.edu>
-- Jian Jiao <cef.ramirez@sv.cmu.edu>
+- Bin Lan <bin.lan@sv.cmu.edu>
+- Jian Jiao <jian.jiao@sv.cmu.edu>
 - Xuan Zhang <xuan.zhang@sv.cmu.edu>
 - Hanzhu Li <hanzhu.li@sv.cmu.edu>
